@@ -16,14 +16,14 @@ then
 fi
 rm $DATAFILE >/dev/null  2>&1
 
-NOMBRES[0]="Jack"
-NOMBRES[1]="MIKE"
-NOMBRES[2]="Mary"
-GENERO[0]="m"
-GENERO[1]="f"
-PAIS[0]="us"
+NOMBRES[0]="Pepito"
+NOMBRES[1]="Menganito"
+NOMBRES[2]="Fulanito"
+GENERO[0]="h"
+GENERO[1]="m"
+PAIS[0]="es"
 PAIS[1]="cn"
-PAIS[2]="uk"
+PAIS[2]="mx"
 
 for i in `seq -w 1 $1`
 do
