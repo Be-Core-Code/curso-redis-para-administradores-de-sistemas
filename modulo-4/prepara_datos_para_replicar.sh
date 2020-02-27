@@ -3,14 +3,14 @@
 function usage() {
     echo "Uso: $0 NUMERO_DE_CLAVES"
     echo ""
-    echo "Por ejmplo: $0 1000"
+    echo "Por ejemplo: $0 1000"
 }
 
 DATAFILE="replicacion.data"
 
 if [ -z $1 ]
 then
-    echo "No has indicado el n..mero de elementos a crear"
+    echo "No has indicado el número de elementos a crear"
     usage
     exit 1
 fi
