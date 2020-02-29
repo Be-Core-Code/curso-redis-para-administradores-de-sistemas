@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import datetime
 import os
 import smtplib
@@ -8,7 +8,7 @@ from email.mime.application import MIMEApplication
 from email.mime.base import MIMEBase
 from email.mime.text import MIMEText
 from email.utils import formatdate
-from email import Encoders
+from email.encoders import __all__
 from email.message import Message
 
 def main():
@@ -16,17 +16,19 @@ def main():
     event_desc = sys.argv[2]
     mail_content = event_type + ":" + event_desc
 
-    send_mail("redis-sentinel-notify@example.com",
-              ["redis-ops@example.com","redis-notify-group@example.com"],
-              "Redis Sentinel Event Notification Mail",
+    send_mail("postmaster@mailgun.org",
+              ["alfonso@alfonsoalba.com"],
+              "Redis Sentinel: Notificacion de Evento",
               mail_content,
-              cc=["xxx@example.com"],
-              bcc=["xxx@example.com"]
+              cc=[""],
+              bcc=[""]
             )
     sys.exit(0)
 
 def send_mail(fromPerson,toPerson, subject="", text="",files=[], cc=[], bcc=[]):
-    server = "smtp.example.com"
+    server = "smtp.mailgun.org"
+    username = "THEUSERNAME"
+    password = "THEPASSWORD"
     message = MIMEMultipart()
     message['From'] = fromPerson
     message['To'] = ', '.join(toPerson)
@@ -50,9 +52,9 @@ def send_mail(fromPerson,toPerson, subject="", text="",files=[], cc=[], bcc=[]):
         addresses.append(x)
 
     smtp = smtplib.SMTP_SSL(server)
-    smtp.login("redis-sentinel-notify","xxxxxx")
+    smtp.login(username,password)
     smtp.sendmail(message['From'],addresses,message.as_string())
     smtp.close()
     
 if __name__ == '__main__':
-main()
+    main()
