@@ -31,7 +31,7 @@ do
     randgenero=$[ $RANDOM % 2 ]
     randtime=$[ $RANDOM % 30 ]
     randpais=$[ $RANDOM % 3 ]
-    echo "hset \"usuario:${i}\" \"nombre\" \"${NOMBRES[$randnombre]}\" \"genero\" \"${GENERO[$randgenero]}\" \"hora_registro\" `date +%s%N` \"pais\" \"${PAIS[$randpais]}\"" > $DATAFILE
+    echo "hset \"usuario:${i}\" \"nombre\" \"${NOMBRES[$randnombre]}\" \"genero\" \"${GENERO[$randgenero]}\" \"hora_registro\" `date +%s%N` \"pais\" \"${PAIS[$randpais]}\"" >> $DATAFILE
     sleep 0.00000${randtime}
 done
 
